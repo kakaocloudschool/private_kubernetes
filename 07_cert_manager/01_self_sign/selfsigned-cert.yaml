@@ -1,0 +1,17 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+ name: ob-ca-tls
+ namespace: istio-system
+spec:
+ # name of the tls secret to store
+ # the generated certificate/key pair
+ secretName: ob-tls-ca-key
+ isCA: true
+ issuerRef:
+   # issuer created in step 1
+   name: selfsigned-issuer
+   kind: Issuer
+ commonName: "onlineboutique.192.168.50.106.nip.io"
+ dnsNames:
+ - onlineboutique.192.168.50.106.nip.io

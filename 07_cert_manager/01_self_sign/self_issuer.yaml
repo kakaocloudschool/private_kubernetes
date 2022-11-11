@@ -1,0 +1,8 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+ name: ob-tls
+ namespace: istio-system
+spec:
+ ca:
+   secretName: ob-tls-ca-key
